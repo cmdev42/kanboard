@@ -49,7 +49,7 @@ defined('DB_WAL_MODE') or define('DB_WAL_MODE', getenv('DB_WAL_MODE') ? strtolow
 defined('DB_USERNAME') or define('DB_USERNAME', getenv('DB_USERNAME') ?: 'root');
 defined('DB_PASSWORD') or define('DB_PASSWORD', getenv('DB_PASSWORD') ?: '');
 defined('DB_HOSTNAME') or define('DB_HOSTNAME', getenv('DB_HOSTNAME') ?: 'localhost');
-defined('DB_NAME') or define('DB_NAME', getenv('DB_NAME') ?: 'kanboard');
+defined('DB_NAME') or define('DB_NAME', getenv('DB_NAME') ?: 'kanboard' . (getenv('TEST_TOKEN') ? '_' . getenv('TEST_TOKEN') : ''));
 defined('DB_PORT') or define('DB_PORT', intval(getenv('DB_PORT')) ?: null);
 defined('DB_ODBC_DSN') or define('DB_ODBC_DSN', getenv('DB_ODBC_DSN') ?: 'kanboard');
 defined('DB_SSL_KEY') or define('DB_SSL_KEY', getenv('DB_SSL_KEY') ?: null);

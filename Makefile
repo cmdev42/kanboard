@@ -10,13 +10,16 @@ archive:
 	@ git archive --format=zip --prefix=kanboard/ $(VERSION) -o kanboard-$(VERSION).zip
 
 test-sqlite:
-	@ ./vendor/bin/phpunit -c tests/units.sqlite.xml
+	# Running paratest in functional mode will make sure to run all test cases in isolation
+	@ ./vendor/bin/paratest --functional -c tests/units.sqlite.xml
 
 test-mysql:
-	@ ./vendor/bin/phpunit -c tests/units.mysql.xml
+	# Running paratest in functional mode will make sure to run all test cases in isolation
+	@ ./vendor/bin/paratest --functional -c tests/units.mysql.xml
 
 test-postgres:
-	@ ./vendor/bin/phpunit -c tests/units.postgres.xml
+	# Running paratest in functional mode will make sure to run all test cases in isolation
+	@ ./vendor/bin/paratest --functional -c tests/units.postgres.xml
 
 sql:
 	@ pg_dump --schema-only --no-owner --no-privileges --quote-all-identifiers -n public --file app/Schema/Sql/postgres.sql kanboard
